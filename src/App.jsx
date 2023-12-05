@@ -1,7 +1,7 @@
 import './App.css';
 import DisplayText from './components/DisplayText';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Toast,ToastHeader,ToastBody } from 'reactstrap';
+import { Toast,ToastHeader,ToastBody,Spinner } from 'reactstrap';
 import { useState } from 'react';
 
 
@@ -20,14 +20,21 @@ function App() {
   
   <br />
   <br />
+
+  {
+    result===""  ?<Spinner>
+    Loading...
+  </Spinner>:
   <Toast isOpen={result!==""}>
-    <ToastHeader toggle={()=>result!==""}>
-      You can also write:
-    </ToastHeader>
-    <ToastBody>
-      {result}
-    </ToastBody>
-  </Toast>
+  <ToastHeader toggle={()=>result!==""}>
+    You can also write:
+  </ToastHeader>
+  <ToastBody>
+    {result}
+  </ToastBody>
+</Toast>
+  }
+  
 </div>
 </div>
     </div>

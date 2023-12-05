@@ -11,6 +11,7 @@ const DisplayText=({setResult})=>{
 
 const clearTest=()=>{
   setText("");
+  setResult("error");
 }
 
 const  rewriterApi=async ()=>{
@@ -34,7 +35,7 @@ const  rewriterApi=async ()=>{
     const response = await axios.request(options);
     setResult(response.data);
   } catch (error) {
-    setResult(error);
+    setResult("error");
   }
 }
   
