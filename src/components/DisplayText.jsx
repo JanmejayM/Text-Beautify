@@ -9,6 +9,10 @@ const DisplayText=({setResult})=>{
 
   const [text,setText]=useState("");
 
+const clearTest=()=>{
+  setText("");
+}
+
 const  rewriterApi=async ()=>{
 
 
@@ -47,14 +51,16 @@ const handleChange=(e)=>{
             <Col >
               <Card body>
                 <CardTitle tag="h5">
-                  Enter the Sentence below: {text}
+                  Enter the Sentence below:
                 </CardTitle>
                 <Card className='mx-5'>
-                  <textarea cols="10" rows="10" onChange={(e) => handleChange(e.target.value)}
+                  <textarea cols="10" rows="10" onChange={(e) => handleChange(e.target.value)} value={text}
           ></textarea>
 
                 </Card>
                 <Button onClick={rewriterApi}>Paraphrase</Button>
+                <Button onClick={clearTest}>Clear Test</Button>
+
               
               </Card>
             </Col>
