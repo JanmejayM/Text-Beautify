@@ -1,7 +1,7 @@
 import './App.css';
 import DisplayText from './components/DisplayText';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Toast,ToastHeader,ToastBody,Spinner } from 'reactstrap';
+import { Toast,ToastHeader,ToastBody,Spinner,Badge } from 'reactstrap';
 import { useState } from 'react';
 
 
@@ -13,7 +13,19 @@ function App() {
   const [show,setShow]=useState(false);
 
   return (
+
     <div className="App">
+
+      <div className="header">
+
+        <h1>
+          Text Beautify
+          <Badge>
+           Paraphrasing Tool
+          </Badge>
+        </h1>
+       
+      </div>
       <DisplayText setResult={setResult} setShow={setShow}/>
 
 
@@ -24,7 +36,7 @@ function App() {
   <br />
 
   {
-    show  ?<Spinner>
+    show  ?<Spinner color='info'>
     Loading...
   </Spinner>:
   <Toast isOpen={result!==""}>

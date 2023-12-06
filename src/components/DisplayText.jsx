@@ -67,8 +67,17 @@ const handleChange=(e)=>{
           ></textarea>
 
                 </Card>
-                <Button onClick={rewriterApi} disabled={text===""}>Paraphrase</Button>
-                <Button onClick={clearTest} disabled={text===""}>Clear Text</Button>
+
+                <Row>
+                  <Col m="6">
+                  <Button onClick={rewriterApi} disabled={text===""} color="info">Paraphrase</Button>
+                  </Col>
+                  <Col m="6">
+                  <Button onClick={clearTest} disabled={text===""} color="danger">Clear Text</Button>
+
+                  </Col>
+                </Row>
+                
 
               
               </Card>
