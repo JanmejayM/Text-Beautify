@@ -5,9 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 import { useState } from 'react';
-const DisplayText=({setResult})=>{
+const DisplayText=({setResult,setShow})=>{
 
   const [text,setText]=useState("");
+
+const clearTest=()=>{
+  setText("");
+  setShow(false);
+  setResult("");
+}
 
 const  rewriterApi=async ()=>{
 
@@ -27,10 +33,17 @@ const  rewriterApi=async ()=>{
   };
   
   try {
+    setShow(true);
+
     const response = await axios.request(options);
+
     setResult(response.data);
+    setShow(false);
+
   } catch (error) {
-    setResult(error);
+    setShow(false);
+
+    setResult("Error Occured");
   }
 }
   
@@ -47,14 +60,25 @@ const handleChange=(e)=>{
             <Col >
               <Card body>
                 <CardTitle tag="h5">
-                  Enter the Sentence below: {text}
+                  Enter the Sentence below:
                 </CardTitle>
                 <Card className='mx-5'>
-                  <textarea cols="10" rows="10" onChange={(e) => handleChange(e.target.value)}
+                  <textarea cols="10" rows="10" onChange={(e) => handleChange(e.target.value)} value={text}
           ></textarea>
 
                 </Card>
-                <Button onClick={rewriterApi}>Paraphrase</Button>
+
+                <Row>
+                  <Col m="6">
+                  <Button onClick={rewriterApi} disabled={text===""} color="info" size='lg'>Paraphrase</Button>
+                  </Col>
+                  <Col m="6">
+                  <Button onClick={clearTest} disabled={text===""} color="danger" size='lg'>Clear Text</Button>
+
+                  </Col>
+                </Row>
+                
+
               
               </Card>
             </Col>
