@@ -5,13 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 import { useState } from 'react';
-const DisplayText=({setResult})=>{
+const DisplayText=({setResult,setShow})=>{
 
   const [text,setText]=useState("");
 
 const clearTest=()=>{
   setText("");
-  setResult("error");
+  setShow(false);
+  setResult("");
 }
 
 const  rewriterApi=async ()=>{
@@ -32,10 +33,17 @@ const  rewriterApi=async ()=>{
   };
   
   try {
+    setShow(true);
+
     const response = await axios.request(options);
+
     setResult(response.data);
+    setShow(false);
+
   } catch (error) {
-    setResult("error");
+    setShow("false");
+
+    setResult("Error Occured");
   }
 }
   

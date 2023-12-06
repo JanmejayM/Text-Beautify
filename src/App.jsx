@@ -10,9 +10,11 @@ function App() {
 
  
   const [result,setResult]=useState("");
+  const [show,setShow]=useState(false);
+
   return (
     <div className="App">
-      <DisplayText setResult={setResult}/>
+      <DisplayText setResult={setResult} setShow={setShow}/>
 
 
       <div className="text-center" style={{marginTop:"50px"}}>
@@ -22,7 +24,7 @@ function App() {
   <br />
 
   {
-    result===""  ?<Spinner>
+    show  ?<Spinner>
     Loading...
   </Spinner>:
   <Toast isOpen={result!==""}>
