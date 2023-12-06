@@ -2,6 +2,11 @@
 import {Row,Col,Card,CardTitle,Button} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { FaDeleteLeft } from "react-icons/fa6";
+
+import { LuScrollText } from "react-icons/lu";
+
+
 import axios from 'axios';
 
 import { useState } from 'react';
@@ -70,10 +75,10 @@ const handleChange=(e)=>{
 
                 <Row>
                   <Col m="6">
-                  <Button onClick={rewriterApi} disabled={text===""} color="info" size='lg'>Paraphrase</Button>
+                  <Button onClick={rewriterApi} disabled={text===""} color="info" size='lg'><LuScrollText/>Paraphrase</Button>
                   </Col>
                   <Col m="6">
-                  <Button onClick={clearTest} disabled={text===""} color="danger" size='lg'>Clear Text</Button>
+                  <Button onClick={clearTest} disabled={text===""} color="danger" size='lg'> Clear Text <FaDeleteLeft/></Button>
 
                   </Col>
                 </Row>
