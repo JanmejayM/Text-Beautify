@@ -70,10 +70,10 @@ const handleChange=(e)=>{
 
                 <Row>
                   <Col m="6">
-                  <Button onClick={rewriterApi} disabled={text===""} color="info">Paraphrase</Button>
+                  <Button onClick={rewriterApi} disabled={text===""} color="info" size='lg'>Paraphrase</Button>
                   </Col>
                   <Col m="6">
-                  <Button onClick={clearTest} disabled={text===""} color="danger">Clear Text</Button>
+                  <Button onClick={clearTest} disabled={text===""} color="danger" size='lg'>Clear Text</Button>
 
                   </Col>
                 </Row>

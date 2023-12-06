@@ -26,7 +26,10 @@ function App() {
         </h1>
        
       </div>
+      <div className='display-section-card'>
       <DisplayText setResult={setResult} setShow={setShow}/>
+
+      </div>
 
 
       <div className="text-center" style={{marginTop:"50px"}}>
