@@ -41,7 +41,7 @@ const  rewriterApi=async ()=>{
     setShow(false);
 
   } catch (error) {
-    setShow("false");
+    setShow(false);
 
     setResult("Error Occured");
   }
@@ -67,8 +67,8 @@ const handleChange=(e)=>{
           ></textarea>
 
                 </Card>
-                <Button onClick={rewriterApi}>Paraphrase</Button>
-                <Button onClick={clearTest}>Clear Test</Button>
+                <Button onClick={rewriterApi} disabled={text===""}>Paraphrase</Button>
+                <Button onClick={clearTest} disabled={text===""}>Clear Text</Button>
 
               
               </Card>
