@@ -2,7 +2,10 @@
 
 .App{
     text-align: center;
-    position:relative;
+   
+    background-color: rgb(232, 246, 220);
+    height: 90vh;
+    margin: 0;
 }
 .display-section-card{
     height: 100%;

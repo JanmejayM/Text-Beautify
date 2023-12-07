@@ -14,6 +14,8 @@ function App() {
 
   return (
 
+ 
+
     <div className="App">
 
       <div className="header">
@@ -28,33 +30,34 @@ function App() {
       </div>
       <div className='display-section-card'>
       <DisplayText setResult={setResult} setShow={setShow}/>
+      
+  {
+            show  ?<Spinner color='info'>
+            Loading...
+          </Spinner>:
+          <div style={{padding:'10px',justifyContent:'center',display:'flex'}}>
+          <Toast isOpen={result!==""} className='bg-warning' >
+          <ToastHeader toggle={()=>result!==""}>
+            You can also write:
+          </ToastHeader>
+          <ToastBody>
+            {result}
+          </ToastBody>
+        </Toast>
+        </div>
+  }
 
       </div>
 
 
-      <div className="text-center" style={{marginTop:"50px"}}>
-      <div>
-  
-  <br />
-  <br />
 
-  {
-    show  ?<Spinner color='info'>
-    Loading...
-  </Spinner>:
-  <Toast isOpen={result!==""}>
-  <ToastHeader toggle={()=>result!==""}>
-    You can also write:
-  </ToastHeader>
-  <ToastBody>
-    {result}
-  </ToastBody>
-</Toast>
-  }
+   
+  
+
   
 </div>
-</div>
-    </div>
+
+
   );
 }
 
